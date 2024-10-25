@@ -3,17 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ReactQueryProvider from "@/store/ReactQueryProvider";
 import { Toaster } from "sonner";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { Header } from "@/components/shared";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,12 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`antialiased`}>
         <ReactQueryProvider>
           <Toaster position="top-right" richColors />
-          <main className="">{children}</main>
+          <main className="bg-black-bg w-full min-h-screen">
+            <Header />
+            {children}
+          </main>
         </ReactQueryProvider>
       </body>
     </html>

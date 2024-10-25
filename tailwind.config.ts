@@ -10,11 +10,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primaryCol: "",
+        primaryCol: "#52CBBE",
         secondaryCol: "",
         accentCol: "",
-        text: "",
+        text: "#FFFFFF",
         bg: "",
+        borderCol: "#404953",
+        "black-bg": "#0A0A0F",
+        "gray-bg": "#1E242B",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
