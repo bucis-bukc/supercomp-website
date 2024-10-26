@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "../helpers";
 import { nonTechCompetitions, techCompetitions } from "@/lib/data";
+import Image from "next/image";
 
 export const Competitions = () => {
   return (
@@ -32,6 +33,20 @@ export const Competitions = () => {
               <Card key={idx} {...comp} />
             ))}
           </div>
+        </div>
+
+        <div className="mt-20 flex flex-col items-center w-full mx-auto">
+          <Image
+            src="/assets/images/competitions-people.png"
+            alt="register-img"
+            width={500}
+            height={500}
+            className="object-contain w-[400px]"
+          />
+
+          <button className="bg-primaryCol text-text text-2xl rounded-md py-2.5 px-10 mt-10">
+            Register
+          </button>
         </div>
       </div>
     </section>
