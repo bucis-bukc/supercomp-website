@@ -93,4 +93,13 @@ body {
   .section-description {
     @apply text-center text-[22px] leading-[30px] tracking-tight text-text;
   }
+  .social-icon {
+    @apply text-neutral-400 cursor-pointer size-6 hover:text-white duration-100 transition-colors;
+  }
+  .footer-list {
+    @apply flex flex-col gap-y-4 mt-3;
+  }
+  .footer-list-item {
+    @apply text-white/60 cursor-pointer hover:text-white transition-colors duration-100;
+  }
 }

@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ReactQueryProvider from "@/store/ReactQueryProvider";
 import { Toaster } from "sonner";
-import { Header } from "@/components/shared";
+import { Footer, Header } from "@/components/shared";
 import { DM_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 
@@ -38,6 +38,7 @@ export default function RootLayout({
           <main className="w-full min-h-screen">
             <Header />
             {children}
+            <Footer />
           </main>
         </ReactQueryProvider>
       </body>
