@@ -1,4 +1,4 @@
-export const techCompetitions = [
+export const techCompetitionsData = [
   {
     category: "Tech",
     name: "Web Development",
@@ -9,6 +9,7 @@ export const techCompetitions = [
     maxMembers: 4,
     rulebookUrl: "https://example.com/web-dev",
     href: "/competitions/web-development",
+    color: "fuchsia",
   },
   {
     category: "Tech",
@@ -20,6 +21,7 @@ export const techCompetitions = [
     maxMembers: 4,
     rulebookUrl: "https://example.com/app-dev",
     href: "/competitions/app-development",
+    color: "lime",
   },
   {
     category: "Tech",
@@ -31,6 +33,7 @@ export const techCompetitions = [
     maxMembers: 3,
     rulebookUrl: "https://example.com/data-visualization",
     href: "/competitions/data-visualization",
+    color: "cyan",
   },
   {
     category: "Tech",
@@ -42,6 +45,7 @@ export const techCompetitions = [
     maxMembers: 2,
     rulebookUrl: "https://example.com/sql-query",
     href: "/competitions/sql-query",
+    color: "violet",
   },
   {
     category: "Tech",
@@ -53,6 +57,7 @@ export const techCompetitions = [
     maxMembers: 2,
     rulebookUrl: "https://example.com/pseudocode",
     href: "/competitions/pseudocode",
+    color: "cyan",
   },
   {
     category: "Tech",
@@ -64,6 +69,7 @@ export const techCompetitions = [
     maxMembers: 3,
     rulebookUrl: "https://example.com/ui-ux",
     href: "/competitions/ui-ux",
+    color: "lime",
   },
   {
     category: "Tech",
@@ -75,10 +81,11 @@ export const techCompetitions = [
     maxMembers: 2,
     rulebookUrl: "https://example.com/speed-debugging",
     href: "/competitions/speed-debugging",
+    color: "violet",
   },
 ];
 
-export const nonTechCompetitions = [
+export const nonTechCompetitionsData = [
   {
     category: "Non-Tech",
     name: "Art",

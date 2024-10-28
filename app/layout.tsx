@@ -4,6 +4,10 @@ import "./globals.css";
 import ReactQueryProvider from "@/store/ReactQueryProvider";
 import { Toaster } from "sonner";
 import { Header } from "@/components/shared";
+import { DM_Sans } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,10 +21,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body
+        className={cn(
+          dmSans.className,
+          "antialiased bg-[#dde3fc] h-screen overflow-x-hidden relative"
+        )}
+      >
         <ReactQueryProvider>
           <Toaster position="top-right" richColors />
-          <main className="bg-black-bg w-full min-h-screen">
+          <main className="w-full min-h-screen">
             <Header />
             {children}
           </main>

@@ -1,52 +1,83 @@
-import React from "react";
+"use client";
+import { techCompetitionsData } from "@/lib/data";
+import { cn } from "@/lib/utils";
+import React, { useEffect, useState } from "react";
 import { Card } from "../helpers";
-import { nonTechCompetitions, techCompetitions } from "@/lib/data";
-import Image from "next/image";
 
 export const Competitions = () => {
+  const [selectedCard, setSelectedCard] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (isHovered) return;
+    const timeout = setTimeout(() => {
+      setSelectedCard((prev) => (prev + 1) % techCompetitionsData.length);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, [selectedCard, isHovered]);
+
   return (
-    <section className="bg-gray-bg">
-      <div className="container mx-auto py-20">
-        <h2 className="text-text font-extrabold lg:text-6xl md:text-5xl text-4xl">
-          Competitions
+    <section className="py-24 overflow-x-clip md:-mt-28">
+      <div className="container mx-auto">
+        <h2 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl text-center max-w-3xl mx-auto">
+          Showcase your skills in technical competitions!
         </h2>
-
-        <div className="mt-20">
-          <h3 className="lg:text-4xl text-3xl text-text font-semibold">
-            Technical Competitions
-          </h3>
-
-          <div className="mt-10 grid lg:grid-cols-3 md:grid-cols-2 gap-5">
-            {techCompetitions.map((comp, idx) => (
-              <Card key={idx} {...comp} />
+        <div className="mt-36 lg:mt-48 flex">
+          <div className="flex flex-none gap-8">
+            {techCompetitionsData.map((card, idx) => (
+              <div
+                key={idx}
+                className="inline-flex transition-all duration-500"
+                style={{
+                  transform: `translateX(calc((-100% - 2rem) * ${selectedCard}))`,
+                }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <Card
+                  color={card.color}
+                  className="max-w-xs md:max-w-md"
+                  btnText="Get Rule Book"
+                >
+                  {/* Image */}
+                  <div className="flex justify-center -mt-28">
+                    <div className="inline-flex relative">
+                      {/* Shadow for Image */}
+                      <div className="absolute h-4 w-full top-[calc(100%+16px)] bg-zinc-950/70 rounded-[100%] [mask-image:radial-gradient(closest-side,black,transparent)] group-hover:bg-zinc-950/30 transition duration-300"></div>
+                      <img
+                        src={"/assets/images/pill.png"}
+                        alt={card.name}
+                        className="size-40 user-select-none group-hover:-translate-y-6 transition duration-300"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="font-heading font-black text-3xl mt-12">
+                    {card.name}
+                  </h3>
+                  <p className="text-lg text-zinc-800 mt-4">
+                    {card.description}
+                  </p>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-20">
-          <h3 className="lg:text-4xl text-3xl text-text font-semibold">
-            Non-Technical Competitions
-          </h3>
-
-          <div className="mt-10 grid lg:grid-cols-3 md:grid-cols-2 gap-5">
-            {nonTechCompetitions.map((comp, idx) => (
-              <Card key={idx} {...comp} />
+        {/* Dots */}
+        <div className="fl  ex justify-center mt-10">
+          <div className="bg-zinc-950 inline-flex gap-4 p-2.5 rounded-full">
+            {techCompetitionsData.map((_, index) => (
+              <div
+                key={index}
+                className={cn(
+                  "size-2.5 bg-zinc-500 rounded-full cursor-pointer",
+                  index === selectedCard && "bg-zinc-300"
+                )}
+                onClick={() => setSelectedCard(index)}
+              ></div>
             ))}
           </div>
-        </div>
-
-        <div className="mt-20 flex flex-col items-center w-full mx-auto">
-          <Image
-            src="/assets/images/competitions-people.png"
-            alt="register-img"
-            width={500}
-            height={500}
-            className="object-contain w-[400px]"
-          />
-
-          <button className="bg-primaryCol text-text text-2xl rounded-md py-2.5 px-10 mt-10">
-            Register
-          </button>
         </div>
       </div>
     </section>
