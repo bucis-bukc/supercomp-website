@@ -1,31 +1,50 @@
 "use client";
-import { techCompetitionsData } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { Card } from "../helpers";
 
-export const Competitions = () => {
+interface CardsData {
+  category: string;
+  name: string;
+  shortDescription: string;
+  description: string;
+  minMembers: number;
+  maxMembers: number;
+  rulebookUrl: string;
+  href: string;
+  color: string;
+}
+
+export const Competitions = ({
+  data,
+  className,
+  heading,
+}: {
+  data: CardsData[];
+  className?: string;
+  heading: string;
+}) => {
   const [selectedCard, setSelectedCard] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (isHovered) return;
     const timeout = setTimeout(() => {
-      setSelectedCard((prev) => (prev + 1) % techCompetitionsData.length);
+      setSelectedCard((prev) => (prev + 1) % data.length);
     }, 2000);
 
     return () => clearTimeout(timeout);
   }, [selectedCard, isHovered]);
 
   return (
-    <section className="py-24 overflow-x-clip md:-mt-28">
+    <section className={cn("py-24 overflow-x-clip md:-mt-28", className)}>
       <div className="container mx-auto">
         <h2 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl text-center max-w-3xl mx-auto">
-          Showcase your skills in technical competitions!
+          {heading}
         </h2>
         <div className="mt-36 lg:mt-48 flex">
           <div className="flex flex-none gap-8">
-            {techCompetitionsData.map((card, idx) => (
+            {data.map((card, idx) => (
               <div
                 key={idx}
                 className="inline-flex transition-all duration-500"
@@ -65,9 +84,9 @@ export const Competitions = () => {
         </div>
 
         {/* Dots */}
-        <div className="fl  ex justify-center mt-10">
+        <div className="flex justify-center mt-10">
           <div className="bg-zinc-950 inline-flex gap-4 p-2.5 rounded-full">
-            {techCompetitionsData.map((_, index) => (
+            {data.map((_, index) => (
               <div
                 key={index}
                 className={cn(

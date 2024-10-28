@@ -88,14 +88,62 @@ export const techCompetitionsData = [
 export const nonTechCompetitionsData = [
   {
     category: "Non-Tech",
-    name: "Art",
-    shortDescription:
-      "Show off your artistic skills by creating a masterpiece.",
+    name: "Quiz Competition",
+    shortDescription: "Test your knowledge across various topics.",
     description:
-      "Show off your artistic skills by creating a masterpiece. The theme will be announced at the start of the competition.",
+      "Participants will compete in a quiz covering a wide range of topics. The team with the highest score wins.",
     minMembers: 1,
-    maxMembers: 3,
-    rulebookUrl: "https://example.com",
-    href: "/competitions/art",
+    maxMembers: 4,
+    rulebookUrl: "https://example.com/quiz",
+    href: "/competitions/quiz",
+    color: "blue",
+  },
+  {
+    category: "Non-Tech",
+    name: "Essay Writing Competition",
+    shortDescription: "Showcase your writing skills.",
+    description:
+      "Participants will write essays on given topics. The best essays will be judged based on creativity, coherence, and grammar.",
+    minMembers: 1,
+    maxMembers: 1,
+    rulebookUrl: "https://example.com/essay-writing",
+    href: "/competitions/essay-writing",
+    color: "fuchsia",
+  },
+  {
+    category: "Non-Tech",
+    name: "CS 1.6 Gaming Competition",
+    shortDescription: "Compete in the classic Counter-Strike 1.6.",
+    description:
+      "Teams will compete in Counter-Strike 1.6 matches. The team that wins the most rounds will be declared the winner.",
+    minMembers: 5,
+    maxMembers: 5,
+    rulebookUrl: "https://example.com/cs-1-6",
+    href: "/competitions/cs-1-6",
+    color: "lime",
+  },
+  {
+    category: "Non-Tech",
+    name: "FIFA Competition",
+    shortDescription: "Show your skills in FIFA.",
+    description:
+      "Participants will compete in FIFA matches. The player with the highest score will win the competition.",
+    minMembers: 1,
+    maxMembers: 1,
+    rulebookUrl: "https://example.com/fifa",
+    href: "/competitions/fifa",
+    color: "cyan",
+  },
+  {
+    category: "Non-Tech",
+    name: "TEKKEN Competition",
+    shortDescription: "Fight your way to the top in TEKKEN.",
+    description:
+      "Participants will compete in TEKKEN matches. The player who wins the most rounds will be declared the champion.",
+    minMembers: 1,
+    maxMembers: 1,
+    rulebookUrl: "https://example.com/tekken",
+    href: "/competitions/tekken",
+    color: "violet",
   },
 ];
