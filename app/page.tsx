@@ -1,4 +1,4 @@
-import { Competitions, Hero, Sponsors } from "@/components/sections";
+import { Competitions, CTA, Hero, Sponsors } from "@/components/sections";
 import { nonTechCompetitionsData, techCompetitionsData } from "@/lib/data";
 
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
         data={nonTechCompetitionsData}
         className="pt-44"
       />
+      <CTA />
     </main>
   );
 }

@@ -7,7 +7,8 @@ import React from "react";
 export const Footer = () => {
   return (
     <footer className="bg-black py-10 md:px-10 px-3">
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-y-10 items-center justify-between">
+      <div className="grid xl:grid-cols-2 grid-cols-1 gap-y-10 items-center justify-between">
+        {/* Left Side */}
         <div className="flex flex-col justify-between gap-y-20">
           <div className="sm:max-w-xs w-full">
             <Image
@@ -46,6 +47,7 @@ export const Footer = () => {
             </Link>
           </div>
         </div>
+        {/* Right Side */}
         <div className="grid gap-x-20 gap-y-10 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
           <div>
             <p className="text-white font-bold text-lg">

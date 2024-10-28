@@ -6,7 +6,7 @@ export const techCompetitionsData = [
     description:
       "Participants will build a fully functional web application using modern web technologies.",
     minMembers: 1,
-    maxMembers: 4,
+    maxMembers: 3,
     rulebookUrl: "https://example.com/web-dev",
     href: "/competitions/web-development",
     color: "fuchsia",
