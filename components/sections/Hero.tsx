@@ -8,16 +8,34 @@ export const Hero = () => {
   return (
     <section className="py-24 md:py-52 overflow-x-clip">
       <div className="container mx-auto">
-        <p className="uppercase font-extrabold text-center text-zinc-800 tracking-wider">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.7, type: "spring" }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="uppercase font-extrabold text-center text-zinc-800 tracking-wider"
+        >
           Introducing
-        </p>
-        <h1 className="font-heading font-black lg:text-8xl md:text-7xl text-6xl text-center mt-4 max-w-3xl mx-auto">
-          SuperComp
-        </h1>
-        <p className="text-center text-xl md:text-2xl mt-6 text-zinc-800 max-w-xl mx-auto">
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.7, type: "spring", delay: 0.2 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="section-title font-heading font-black lg:text-8xl md:text-7xl text-6xl text-center mt-4 max-w-3xl mx-auto"
+        >
+          Supercomp
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.7, type: "spring", delay: 0.4 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center text-xl md:text-2xl mt-6 text-zinc-800 max-w-xl mx-auto"
+        >
           An exciting event for computer science students to showcase their
           skills and compete in various competitions.
-        </p>
+        </motion.p>
         <div className="flex justify-center mt-10">
           <ActionButton btnText="Get Started" />
         </div>

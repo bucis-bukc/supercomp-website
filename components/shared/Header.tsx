@@ -82,10 +82,10 @@ export const Header = () => {
               </nav>
 
               <Image
-                src="/assets/images/logo.png"
+                src="/assets/images/bucis-logo.png"
                 alt="LOGO"
-                width={200}
-                height={200}
+                width={500}
+                height={500}
                 className="max-md:hidden object-contain w-16"
               />
             </div>

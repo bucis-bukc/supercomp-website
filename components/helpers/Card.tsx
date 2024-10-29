@@ -1,13 +1,18 @@
 import { Badge } from "@/components/ui/badge";
 import { cn } from "../../lib/utils";
+import { Tag } from "./Tag";
 
 export const Card = ({
   color,
   className,
   btnText,
   children,
+  minMembers,
+  maxMembers,
 }: {
   children: React.ReactNode;
+  minMembers: number;
+  maxMembers: number;
   color: string;
   className?: string;
   btnText?: string;
@@ -34,21 +39,14 @@ export const Card = ({
       {/* Cut corner */}
       <div className="absolute inset-0 bg-sky-100 -z-10 rounded-2xl [mask-image:linear-gradient(225deg,transparent,transparent_40px,black_40px)]"></div>
       <div>{children}</div>
-      <Badge
-        className="mt-3 mb-5"
-        style={{
-          background:
-            color === "lime"
-              ? "lime"
-              : color === "cyan"
-              ? "cyan"
-              : color === "violet"
-              ? "violet"
-              : "fuchsia",
-        }}
-      >
-        Blah
-      </Badge>
+      <div>
+        <Tag
+          minMembers={minMembers}
+          maxMembers={maxMembers}
+          color={color}
+          className="mt-2"
+        />
+      </div>
       <div className="flex justify-between mt-auto gap-x-8">
         <button
           className={cn(

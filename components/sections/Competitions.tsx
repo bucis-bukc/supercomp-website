@@ -8,7 +8,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "../ui/carousel";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface CardsData {
   category: string;
@@ -59,9 +59,16 @@ export const Competitions = ({
   return (
     <section className={cn("py-24 overflow-x-clip md:-mt-28", className)}>
       <div className="container mx-auto">
-        <h2 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl text-center max-w-3xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.7, type: "spring", delay: 0.2 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="section-title font-bold text-4xl md:text-5xl lg:text-6xl text-center max-w-3xl mx-auto"
+        >
           {heading}
-        </h2>
+        </motion.h2>
+        <h2 className=""></h2>
         <div className="mt-36 lg:mt-48 flex">
           <div className="">
             <Carousel
@@ -82,7 +89,9 @@ export const Competitions = ({
                   >
                     <Card
                       color={card.color}
-                      className="max-w-xs md:max-w-md flex flex-col items-start"
+                      minMembers={card.minMembers}
+                      maxMembers={card.maxMembers}
+                      className="xs:max-w-xs w-full md:max-w-md flex flex-col items-start select-none"
                       btnText="Get Rule Book"
                     >
                       {/* Image */}
@@ -121,7 +130,6 @@ export const Competitions = ({
                   index === current && "bg-zinc-300"
                 )}
                 onClick={() => {
-                  console.log(index);
                   api?.scrollTo(index);
                 }}
               ></div>
