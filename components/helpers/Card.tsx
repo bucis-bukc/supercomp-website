@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { cn } from "../../lib/utils";
 
 export const Card = ({
@@ -33,10 +34,25 @@ export const Card = ({
       {/* Cut corner */}
       <div className="absolute inset-0 bg-sky-100 -z-10 rounded-2xl [mask-image:linear-gradient(225deg,transparent,transparent_40px,black_40px)]"></div>
       <div>{children}</div>
-      <div className="flex justify-between mt-12 gap-x-8">
+      <Badge
+        className="mt-3 mb-5"
+        style={{
+          background:
+            color === "lime"
+              ? "lime"
+              : color === "cyan"
+              ? "cyan"
+              : color === "violet"
+              ? "violet"
+              : "fuchsia",
+        }}
+      >
+        Blah
+      </Badge>
+      <div className="flex justify-between mt-auto gap-x-8">
         <button
           className={cn(
-            "text-sm font-heading uppercase font-extrabold tracking-wider text-fuchsia-500",
+            "text-sm font-heading uppercase font-extrabold tracking-wider text-fuchsia-500 ",
             color === "lime" && "text-lime-500",
             color === "cyan" && "text-cyan-500",
             color === "violet" && "text-violet-500"
