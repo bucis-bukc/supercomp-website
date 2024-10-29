@@ -35,18 +35,18 @@ export const Competitions = ({
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  // useEffect(() => {
-  //   if (isHovered) return;
-  //   const timeout = setTimeout(() => {
-  //     if (current === data.length - 1) {
-  //       api?.scrollTo(0);
-  //       return;
-  //     }
-  //     api?.scrollTo(current + 1);
-  //   }, 2000);
+  useEffect(() => {
+    if (isHovered) return;
+    const timeout = setTimeout(() => {
+      if (current === data.length - 1) {
+        api?.scrollTo(0);
+        return;
+      }
+      api?.scrollTo(current + 1);
+    }, 2000);
 
-  //   return () => clearTimeout(timeout);
-  // }, [current, isHovered]);
+    return () => clearTimeout(timeout);
+  }, [current, isHovered]);
 
   useEffect(() => {
     if (!api) return;
