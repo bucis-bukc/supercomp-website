@@ -35,18 +35,18 @@ export const Competitions = ({
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  useEffect(() => {
-    if (isHovered) return;
-    const timeout = setTimeout(() => {
-      if (current === data.length - 1) {
-        api?.scrollTo(0);
-        return;
-      }
-      api?.scrollTo(current + 1);
-    }, 2000);
+  // useEffect(() => {
+  //   if (isHovered) return;
+  //   const timeout = setTimeout(() => {
+  //     if (current === data.length - 1) {
+  //       api?.scrollTo(0);
+  //       return;
+  //     }
+  //     api?.scrollTo(current + 1);
+  //   }, 2000);
 
-    return () => clearTimeout(timeout);
-  }, [current, isHovered]);
+  //   return () => clearTimeout(timeout);
+  // }, [current, isHovered]);
 
   useEffect(() => {
     if (!api) return;
@@ -78,11 +78,11 @@ export const Competitions = ({
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                     key={idx}
-                    className=""
+                    className="flex"
                   >
                     <Card
                       color={card.color}
-                      className="max-w-xs md:max-w-md"
+                      className="max-w-xs md:max-w-md flex flex-col items-start"
                       btnText="Get Rule Book"
                     >
                       {/* Image */}

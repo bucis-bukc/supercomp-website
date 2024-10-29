@@ -35,7 +35,7 @@ export const Card = ({
       <div className="absolute inset-0 bg-sky-100 -z-10 rounded-2xl [mask-image:linear-gradient(225deg,transparent,transparent_40px,black_40px)]"></div>
       <div>{children}</div>
       <Badge
-        className="mt-3"
+        className="mt-3 mb-5"
         style={{
           background:
             color === "lime"
@@ -49,10 +49,10 @@ export const Card = ({
       >
         Blah
       </Badge>
-      <div className="flex justify-between mt-12 gap-x-8">
+      <div className="flex justify-between mt-auto gap-x-8">
         <button
           className={cn(
-            "text-sm font-heading uppercase font-extrabold tracking-wider text-fuchsia-500",
+            "text-sm font-heading uppercase font-extrabold tracking-wider text-fuchsia-500 ",
             color === "lime" && "text-lime-500",
             color === "cyan" && "text-cyan-500",
             color === "violet" && "text-violet-500"
