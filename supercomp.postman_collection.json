@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "d2be5e81-4ba9-426c-b28d-75e0eed9f4ad",
+		"name": "BUCIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33062940"
+	},
+	"item": [
+		{
+			"name": "Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"competitionName\": \"Speed Programming\",\r\n    \"payslip\": \"https://example.com/payslips/sp001.jpg\",\r\n    \"members\": [\r\n        {\r\n          \"name\": \"Danish Siddiqui\",\r\n          \"email\": \"danishsidd203@gmail.com\",\r\n          \"phone\": \"+92 321 1234567\",\r\n          \"institute\": \"FAST-NUCES Karachi\",\r\n          \"isLeader\": true\r\n        },\r\n        {\r\n          \"name\": \"Usman Shamsi\",\r\n          \"email\": \"danosiddiqui203@gmail.com\",\r\n          \"phone\": \"+92 333 2345678\",\r\n          \"institute\": \"FAST-NUCES Karachi\",\r\n          \"isLeader\": false\r\n        },\r\n        {\r\n          \"name\": \"Danish Ali\",\r\n          \"email\": \"danishsidd524@gmail.com\",\r\n          \"phone\": \"+92 345 3456789\",\r\n          \"institute\": \"FAST-NUCES Karachi\",\r\n          \"isLeader\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{api}}/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Ambassadors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{api}}/ambassador"
+			},
+			"response": []
+		},
+		{
+			"name": "Ambassadors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Danish Siddiqui\",\r\n    \"email\": \"danishsidd203@gmail.com\",\r\n    \"phone\": \"+92 321 1234567\",\r\n    \"institute\": \"FAST-NUCES Karachi\",\r\n    \"cnic\": \"42201-1234567-8\",\r\n    \"picture\": \"https://example.com/profile1.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{api}}/ambassador"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api",
+			"value": "http://localhost:3000/api",
+			"type": "string"
+		}
+	]
+}
