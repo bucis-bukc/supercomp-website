@@ -31,26 +31,29 @@ export const Competitions = ({
   className?: string;
   heading: string;
 }) => {
-  const [selectedCard, setSelectedCard] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
 
-  // useEffect(() => {
-  //   if (isHovered) return;
-  //   const timeout = setTimeout(() => {}, 2000);
+  useEffect(() => {
+    if (isHovered) return;
+    const timeout = setTimeout(() => {
+      if (current === data.length - 1) {
+        api?.scrollTo(0);
+        return;
+      }
+      api?.scrollTo(current + 1);
+    }, 2000);
 
-  //   return () => clearTimeout(timeout);
-  // }, [selectedCard, isHovered]);
+    return () => clearTimeout(timeout);
+  }, [current, isHovered]);
 
   useEffect(() => {
     if (!api) return;
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+    setCurrent(api.selectedScrollSnap());
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
+      setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
   return (
@@ -60,17 +63,23 @@ export const Competitions = ({
           {heading}
         </h2>
         <div className="mt-36 lg:mt-48 flex">
-          <div className="flex flex-none gap-8">
+          <div className="">
             <Carousel
               setApi={setApi}
               opts={{
                 slidesToScroll: 1,
+                align: "start",
               }}
-              className="w-full"
+              className="w-full max-w-sm"
             >
               <CarouselContent>
                 {data.map((card, idx) => (
-                  <CarouselItem key={idx}>
+                  <CarouselItem
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    key={idx}
+                    className=""
+                  >
                     <Card
                       color={card.color}
                       className="max-w-xs md:max-w-md"
@@ -101,21 +110,22 @@ export const Competitions = ({
             </Carousel>
           </div>
         </div>
-
+        {/* Dots */}
         <div className="flex justify-center mt-10">
           <div className="bg-zinc-950 inline-flex gap-4 p-2.5 rounded-full">
-            <button
-              onClick={() => api?.scrollTo(current - 2)}
-              className="center size-12 rounded-full border border-text text-text hover:text-primaryCol hover:border-primaryCol transition-all duration-200"
-            >
-              <ArrowLeft className="size-6" />
-            </button>
-            <button
-              onClick={() => api?.scrollTo(current)}
-              className="center size-12 rounded-full border border-text text-text hover:text-primaryCol hover:border-primaryCol transition-all duration-200"
-            >
-              <ArrowRight className="size-6" />
-            </button>
+            {data.map((_, index) => (
+              <div
+                key={index}
+                className={cn(
+                  "size-2.5 bg-zinc-500 rounded-full cursor-pointer",
+                  index === current && "bg-zinc-300"
+                )}
+                onClick={() => {
+                  console.log(index);
+                  api?.scrollTo(index);
+                }}
+              ></div>
+            ))}
           </div>
         </div>
       </div>
