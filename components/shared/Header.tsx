@@ -67,18 +67,15 @@ export const Header = () => {
               </div>
 
               <nav className="hidden md:flex items-center gap-6 text-black/60">
-                <Link href="" className="font-semibold">
-                  Home
-                </Link>
-                <Link href="" className="font-medium">
-                  About
-                </Link>
-                <Link href="" className="font-medium">
-                  Register
-                </Link>
-                <Link href="" className="font-medium">
-                  Ambassadors
-                </Link>
+                {navLinks.map((link, idx) => (
+                  <Link
+                    href={link.path}
+                    className={cn("font-semibold")}
+                    key={idx}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
               </nav>
 
               <Image

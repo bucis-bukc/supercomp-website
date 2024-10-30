@@ -3,16 +3,22 @@ import { cn } from "../../lib/utils";
 export const ActionButton = ({
   btnText,
   className,
+  type,
+  disabled,
 }: {
   btnText: string;
   className?: string;
+  type?: "submit" | "button";
+  disabled?: boolean;
 }) => {
   return (
     <button
       className={cn(
         "bg-sky-500/20 px-4 py-2 font-extrabold uppercase font-heading text-sm tracking-wide relative",
-        className
+        className,
+        disabled && "pointer-events-none opacity-50"
       )}
+      disabled={disabled}
     >
       {/* Glowing Outline */}
       <div className="absolute inset-0 outline outline-2 -outline-offset-2 outline-sky-500 [mask-image:linear-gradient(225deg,transparent,transparent_10px,black_10px)]"></div>

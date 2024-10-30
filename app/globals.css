@@ -103,3 +103,15 @@ body {
     @apply text-white/60 cursor-pointer hover:text-white transition-colors duration-100;
   }
 }
+
+/* Hide spinners for Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide spinners for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
