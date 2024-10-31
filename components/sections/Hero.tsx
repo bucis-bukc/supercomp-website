@@ -1,10 +1,38 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { ActionButton, Circle, Hexagon } from "../helpers";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export const Hero = () => {
+  const icosahedronRef = useRef(null);
+  const cubeRef = useRef(null);
+  const torusRef = useRef(null);
+  const cuboidRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: icosahedronRef,
+    offset: ["start end", "end start"],
+  });
+  const { scrollYProgress: cubeScrollYProgress } = useScroll({
+    target: cubeRef,
+    offset: ["start end", "end start"],
+  });
+
+  const { scrollYProgress: torusScrollYProgress } = useScroll({
+    target: torusRef,
+    offset: ["start end", "end start"],
+  });
+
+  const { scrollYProgress: cuboidScrollYProgress } = useScroll({
+    target: cuboidRef,
+    offset: ["start end", "end start"],
+  });
+
+  const icosahedronRotate = useTransform(scrollYProgress, [0, 1], [30, -45]);
+  const cubeRotate = useTransform(cubeScrollYProgress, [0, 1], [100, -45]);
+  const torusRotate = useTransform(torusScrollYProgress, [0, 1], [20, -20]);
+  const cuboidRotate = useTransform(cuboidScrollYProgress, [0, 1], [20, -20]);
+
   return (
     <section className="py-24 md:py-52 overflow-x-clip">
       <div className="container mx-auto">
@@ -61,8 +89,8 @@ export const Hero = () => {
                   src="/assets/images/cube.png"
                   alt="Cube 3D Image"
                   className="size-[140px]"
-                  // ref={cubeRef}
-                  // style={{ rotate: cubeRotate }}
+                  ref={cubeRef}
+                  style={{ rotate: cubeRotate }}
                 />
               </Circle>
             </div>
@@ -73,8 +101,8 @@ export const Hero = () => {
                   src="/assets/images/cuboid.png"
                   alt="Cuboid 3D Image"
                   className="size-[140px]"
-                  // ref={cuboidRef}
-                  // style={{ rotate: cuboidRotate }}
+                  ref={cuboidRef}
+                  style={{ rotate: cuboidRotate }}
                 />
               </Circle>
             </div>
@@ -85,14 +113,14 @@ export const Hero = () => {
                   src="/assets/images/torus.png"
                   alt="Torus 3D Image"
                   className="size-[140px]"
-                  // ref={torusRef}
-                  // style={{ rotate: torusRotate }}
+                  ref={torusRef}
+                  style={{ rotate: torusRotate }}
                 />
               </Circle>
             </div>
             <motion.div
-              // style={{ rotate: icosahedronRotate }}
-              // ref={icosahedronRef}
+              style={{ rotate: icosahedronRotate }}
+              ref={icosahedronRef}
               className="inline-flex"
             >
               {/* Main Image */}
@@ -100,6 +128,7 @@ export const Hero = () => {
                 src="/assets/images/icosahedron.png"
                 alt="Icosahedron 3D Image"
                 className="w-[500px] "
+                
               />
             </motion.div>
           </div>
