@@ -25,10 +25,10 @@ export const techCompetitionsData = [
   },
   {
     category: "Tech",
-    name: "Data Visualization",
+    name: "Machine Learning",
     shortDescription: "Create visual representations of data.",
     description:
-      "Participants will use data visualization tools to create insightful visual representations of complex data sets.",
+      "Participants will use Machine Learning to create insightful visual representations of complex data sets.",
     minMembers: 1,
     maxMembers: 3,
     rulebookUrl: "https://example.com/data-visualization",
@@ -146,4 +146,21 @@ export const nonTechCompetitionsData = [
     href: "/competitions/tekken",
     color: "violet",
   },
+];
+
+export const comeptitionNames = [
+  // Tech Competitions
+  { name: "Web Development", maxMembers: 2 },
+  { name: "App Development", maxMembers: 2 },
+  { name: "Machine Learning", maxMembers: 3 },
+  { name: "SQL Query", maxMembers: 2 },
+  { name: "Pseudocode", maxMembers: 2 },
+  { name: "UI/UX", maxMembers: 3 },
+  { name: "Speed Debugging", maxMembers: 2 },
+  // Non-Tech Competitions
+  { name: "Quiz Competition", maxMembers: 2 },
+  { name: "Essay Writing Competition", maxMembers: 1 },
+  { name: "CS 1.6 Gaming Competition", maxMembers: 2 },
+  { name: "FIFA Competition", maxMembers: 1 },
+  { name: "TEKKEN Competition", maxMembers: 1 },
 ];

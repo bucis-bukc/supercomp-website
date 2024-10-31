@@ -6,7 +6,6 @@ export interface MemberDocument extends Document {
   email: string;
   phone: string;
   institute: string;
-  isLeader: boolean;
 }
 
 const MemberSchema = new Schema<MemberDocument>({
@@ -26,7 +25,6 @@ const MemberSchema = new Schema<MemberDocument>({
   },
   phone: { type: String, required: true },
   institute: { type: String, required: [true, "Institute name is required"] },
-  isLeader: { type: Boolean, default: false },
 });
 
 export const Member =

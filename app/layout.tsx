@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={cn(
           dmSans.className,
-          "antialiased bg-[#dde3fc] h-screen overflow-x-hidden relative"
+          "antialiased bg-bg h-screen overflow-x-hidden relative"
         )}
       >
         <ReactQueryProvider>

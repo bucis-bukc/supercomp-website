@@ -13,7 +13,11 @@ const RegistrationSchema = new Schema<RegistrationDocument>({
     required: [true, "Competition Name is required"],
   },
   payslip: { type: String, required: [true, "Pay slip is required"] },
-  members: [{ type: Schema.Types.ObjectId, ref: "Member" }],
+  members: [
+    {
+      member: { type: Schema.Types.ObjectId, ref: "Member", isLeader: Boolean },
+    },
+  ],
 });
 
 export const Registration =

@@ -25,7 +25,7 @@ const config: Config = {
         secondaryCol: "",
         accentCol: "",
         text: "#FFFFFF",
-        bg: "",
+        bg: "#dde3fc",
         borderCol: "#404953",
         "black-bg": "#0A0A0F",
         "gray-bg": "#1E242B",
