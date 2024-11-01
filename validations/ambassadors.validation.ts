@@ -14,7 +14,7 @@ export const ambassadorSchema = z.object({
   phone: z
     .string({ message: "Phone number is required" })
     .min(1, { message: "Phone number is required*" })
-    .max(14, "Invalid Phone number")
+    .max(11, "Invalid Phone number")
     .regex(/^[\d+-]+$/, {
       message: "Invalid Phone number",
     }),
