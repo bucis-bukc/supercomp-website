@@ -68,7 +68,6 @@ export const Competitions = ({
         >
           {heading}
         </motion.h2>
-        <h2 className=""></h2>
         <div className="mt-36 lg:mt-48 flex">
           <div className="">
             <Carousel

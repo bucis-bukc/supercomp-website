@@ -1,8 +1,7 @@
 import { Registration } from "@/lib/models/Registeration";
-import { Member } from "@/lib/models/Member";
+import { Member, MemberDocument } from "@/lib/models/Member";
 import { connectDb } from "@/lib/config/db";
 import { NextRequest, NextResponse } from "next/server";
-import { MemberPayload } from "@/types/types";
 import { sendMail } from "@/lib/mailer";
 
 export const POST = async (req: NextRequest) => {
@@ -15,7 +14,7 @@ export const POST = async (req: NextRequest) => {
     }: {
       competitionName: string;
       payslip: string;
-      members: MemberPayload[];
+      members: MemberDocument[];
     } = await req.json();
 
     if (!competitionName || !payslip || !members)
