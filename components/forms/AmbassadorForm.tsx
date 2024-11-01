@@ -13,8 +13,10 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useMutation } from "@tanstack/react-query";
 import { createAmbassador } from "@/API/ambassador.api";
+import { useRouter } from "next/navigation";
 
 export const AmbassadorForm = () => {
+  const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
   const [image, setImage] = useState("");
 
@@ -54,6 +56,7 @@ export const AmbassadorForm = () => {
       setImage("");
       setFile(null);
       reset();
+      router.push("/");
     } else return toast.error(response as string);
   };
 

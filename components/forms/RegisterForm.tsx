@@ -1,6 +1,6 @@
 "use client";
 import { registerforCompetition } from "@/API/register.api";
-import { convertImage } from "@/lib/helpers";
+import { capitalize, convertImage } from "@/lib/helpers";
 import {
   registerSchema,
   memberSchema,
@@ -40,7 +40,6 @@ export const RegisterForm = () => {
     setError,
     watch,
     reset,
-    trigger,
     formState: { errors, isSubmitting },
   } = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -62,7 +61,7 @@ export const RegisterForm = () => {
     for (const field in firstMember) {
       if (!(firstMember as any)[field]) {
         errorFirstMember.push({
-          message: `${field} is required`,
+          message: `${capitalize(field)} is required*`,
           path: `members.0.${field}`,
         });
       }
@@ -82,7 +81,7 @@ export const RegisterForm = () => {
           isAllFieldsFilled = false;
           err = {
             path: `members.${index}.${field}`,
-            message: `${field} must be filled`,
+            message: `${capitalize(field)} must be filled`,
           };
         }
         err && error.push(err);
@@ -135,11 +134,19 @@ export const RegisterForm = () => {
       }
       return isFilled;
     });
+    // Hitting the api
+
+    const memberWithLeader = filteredMembers.map((member, index) => ({
+      ...member,
+      isLeader: index === 0,
+    }));
+
     const { response, success } = await mutateAsync({
       ...data,
-      members: filteredMembers as any,
+      members: memberWithLeader as any,
       payslip,
     });
+
     if (success) {
       toast.success("Thank you for your submission");
       setPayslip("");
@@ -149,7 +156,6 @@ export const RegisterForm = () => {
   };
 
   const competitionName = watch("competitionName");
-  const payslipImage = watch("payslip");
 
   const selectedCompetition = comeptitionNames.find(
     (comp) => comp.name === competitionName
@@ -164,6 +170,7 @@ export const RegisterForm = () => {
     setPayslip("");
     setValue("competitionName", value);
   };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -208,7 +215,7 @@ export const RegisterForm = () => {
                 Member {memberIndex + 1}{" "}
                 {memberIndex === 0 && <span className="text-red-500">*</span>}
               </h3>
-              <div className="w-full flex items-center justify-between gap-4">
+              <div className="w-full flex max-sm:flex-col sm:items-center sm:justify-between justify-center gap-4">
                 <div className="relative w-full">
                   <Input
                     placeholder="Name"
@@ -232,7 +239,7 @@ export const RegisterForm = () => {
                 </div>
               </div>
 
-              <div className="w-full flex items-center justify-between gap-4">
+              <div className="w-full flex max-sm:flex-col items-center sm:justify-between justify-center gap-4">
                 <div className="relative w-full">
                   <Input
                     placeholder="Phone Number"

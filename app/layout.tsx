@@ -14,6 +14,15 @@ export const metadata: Metadata = {
   title: "Supercomp - BUCIS | BUKC",
   description:
     "Supercomp is an annual event held by BUCIS | BUKC at Bahria University Karachi Campus, where students from every university can participate and showcase their skill, specifically in technical skills like programming.",
+  keywords: [
+    "supercomp",
+    "bucis",
+    "bukc",
+    "bahria university",
+    "karachi",
+    "computer science",
+    "programming",
+  ],
   authors: [{ name: "Danish Siddiqui" }],
   creator: "Supercomp",
   publisher: "BUCIS",

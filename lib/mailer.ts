@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import { Registration } from "./models/Registeration";
 import { Ambassador } from "./models/Ambassador";
-import { IAmbassador, IMember, IRegisterations } from "@/types/types";
+import { IAmbassador, IMember } from "@/types/types";
 
 interface SendProps {
   email: string;
@@ -18,7 +18,7 @@ export const sendMail = async ({ email, emailType, id }: SendProps) => {
       ambassador = await Ambassador.findById(id);
     } else if (emailType === "REGISTRATION") {
       registration = await Registration.findById(id).populate({
-        path: "members",
+        path: "members.member",
         model: "Member",
         select: "email name",
       });
@@ -85,10 +85,16 @@ export const sendMail = async ({ email, emailType, id }: SendProps) => {
             
             ${registration.members
               .map(
-                (member: IMember) => `
+                ({
+                  member,
+                  isLeader,
+                }: {
+                  member: IMember;
+                  isLeader: boolean;
+                }) => `
                 <div style="margin-bottom: 10px;">
                     <strong>${
-                      member.isLeader ? "Team Leader" : "Team Member"
+                      isLeader ? "Team Leader" : "Team Member"
                     }:</strong>
                     <span>${member.name}</span>
                     <span style="color: #666666;"> (${member.email})</span>

@@ -1,8 +1,9 @@
 import { Registration } from "@/lib/models/Registeration";
-import { Member, MemberDocument } from "@/lib/models/Member";
+import { Member } from "@/lib/models/Member";
 import { connectDb } from "@/lib/config/db";
 import { NextRequest, NextResponse } from "next/server";
 import { sendMail } from "@/lib/mailer";
+import { MemberPayload } from "@/types/types";
 
 export const POST = async (req: NextRequest) => {
   try {
@@ -14,7 +15,7 @@ export const POST = async (req: NextRequest) => {
     }: {
       competitionName: string;
       payslip: string;
-      members: MemberDocument[];
+      members: MemberPayload[];
     } = await req.json();
 
     if (!competitionName || !payslip || !members)
@@ -24,8 +25,14 @@ export const POST = async (req: NextRequest) => {
       );
 
     const createdMembers = await Promise.all(
-      members.map(async (member) => {
-        return await Member.create(member);
+      members.map(async (member, index) => {
+        // Create the member document
+        const createdMember = await Member.create(member);
+
+        return {
+          member: createdMember._id,
+          isLeader: members[index].isLeader! || false,
+        };
       })
     );
 
@@ -42,15 +49,15 @@ export const POST = async (req: NextRequest) => {
       );
 
     // // Send email to all members
-    // await Promise.all(
-    //   members.map(async (member) => {
-    //     await sendMail({
-    //       email: member.email,
-    //       emailType: "REGISTRATION",
-    //       id: registration.id,
-    //     });
-    //   })
-    // );
+    await Promise.all(
+      members.map(async (member) => {
+        await sendMail({
+          email: member.email,
+          emailType: "REGISTRATION",
+          id: registration.id,
+        });
+      })
+    );
 
     return NextResponse.json({
       message: "Registeration successful",

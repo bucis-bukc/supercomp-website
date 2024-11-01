@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { ActionButton, Circle, Hexagon } from "../helpers";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 
 export const Hero = () => {
   const icosahedronRef = useRef(null);
@@ -65,7 +66,12 @@ export const Hero = () => {
           skills and compete in various competitions.
         </motion.p>
         <div className="flex justify-center mt-10">
-          <ActionButton btnText="Get Started" />
+          <Link href="/register" className="block z-10">
+            <ActionButton
+              btnText="Get Started"
+              className="px-10 py-2.5 text-lg cursor-pointer"
+            />
+          </Link>
         </div>
         {/* Image Container */}
         <div className="flex justify-center mt-24">
@@ -128,7 +134,6 @@ export const Hero = () => {
                 src="/assets/images/icosahedron.png"
                 alt="Icosahedron 3D Image"
                 className="w-[500px] "
-                
               />
             </motion.div>
           </div>

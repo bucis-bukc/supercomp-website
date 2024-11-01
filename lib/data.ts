@@ -10,6 +10,7 @@ export const techCompetitionsData = [
     rulebookUrl: "https://example.com/web-dev",
     href: "/competitions/web-development",
     color: "fuchsia",
+    image: "/assets/images/pill.png",
   },
   {
     category: "Tech",
@@ -22,6 +23,7 @@ export const techCompetitionsData = [
     rulebookUrl: "https://example.com/app-dev",
     href: "/competitions/app-development",
     color: "lime",
+    image: "/assets/images/hemisphere.png",
   },
   {
     category: "Tech",
@@ -34,6 +36,7 @@ export const techCompetitionsData = [
     rulebookUrl: "https://example.com/data-visualization",
     href: "/competitions/data-visualization",
     color: "cyan",
+    image: "/assets/images/torus.png",
   },
   {
     category: "Tech",
@@ -46,6 +49,7 @@ export const techCompetitionsData = [
     rulebookUrl: "https://example.com/sql-query",
     href: "/competitions/sql-query",
     color: "violet",
+    image: "/assets/images/torus-knot.png",
   },
   {
     category: "Tech",
@@ -58,6 +62,7 @@ export const techCompetitionsData = [
     rulebookUrl: "https://example.com/pseudocode",
     href: "/competitions/pseudocode",
     color: "cyan",
+    image: "/assets/images/cube.png",
   },
   {
     category: "Tech",
@@ -70,6 +75,7 @@ export const techCompetitionsData = [
     rulebookUrl: "https://example.com/ui-ux",
     href: "/competitions/ui-ux",
     color: "lime",
+    image: "/assets/images/cone.png",
   },
   {
     category: "Tech",
@@ -82,6 +88,7 @@ export const techCompetitionsData = [
     rulebookUrl: "https://example.com/speed-debugging",
     href: "/competitions/speed-debugging",
     color: "violet",
+    image: "/assets/images/cylinder.png",
   },
 ];
 
@@ -97,6 +104,7 @@ export const nonTechCompetitionsData = [
     rulebookUrl: "https://example.com/quiz",
     href: "/competitions/quiz",
     color: "blue",
+    image: "/assets/images/cylinder-blue.png",
   },
   {
     category: "Non-Tech",
@@ -109,6 +117,7 @@ export const nonTechCompetitionsData = [
     rulebookUrl: "https://example.com/essay-writing",
     href: "/competitions/essay-writing",
     color: "fuchsia",
+    image: "/assets/images/cog.png",
   },
   {
     category: "Non-Tech",
@@ -121,6 +130,7 @@ export const nonTechCompetitionsData = [
     rulebookUrl: "https://example.com/cs-1-6",
     href: "/competitions/cs-1-6",
     color: "lime",
+    image: "/assets/images/torus-blue.png",
   },
   {
     category: "Non-Tech",
@@ -133,6 +143,7 @@ export const nonTechCompetitionsData = [
     rulebookUrl: "https://example.com/fifa",
     href: "/competitions/fifa",
     color: "cyan",
+    image: "/assets/images/half-torus.png",
   },
   {
     category: "Non-Tech",
@@ -145,6 +156,7 @@ export const nonTechCompetitionsData = [
     rulebookUrl: "https://example.com/tekken",
     href: "/competitions/tekken",
     color: "violet",
+    image: "/assets/images/cube-helix 1.png",
   },
 ];
 

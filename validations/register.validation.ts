@@ -14,7 +14,4 @@ export const registerSchema = z.object({
     .string({ message: "Please provide payslip*" })
     .min(1, { message: "Please provide payslip*" }),
   members: z.array(memberSchema),
-  // .refine((members) => members[0] && Object.keys(members[0]).length > 0, {
-  //   message: "At least one member is required",
-  // }),
 });

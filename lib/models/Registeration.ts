@@ -15,7 +15,11 @@ const RegistrationSchema = new Schema<RegistrationDocument>({
   payslip: { type: String, required: [true, "Pay slip is required"] },
   members: [
     {
-      member: { type: Schema.Types.ObjectId, ref: "Member", isLeader: Boolean },
+      member: {
+        type: Schema.Types.ObjectId,
+        ref: "Member",
+      },
+      isLeader: { type: Boolean, default: false },
     },
   ],
 });

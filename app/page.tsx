@@ -26,7 +26,9 @@ export default async function Home() {
         data={nonTechCompetitionsData}
         className="pt-44"
       />
-      <Ambassadors heading="Our Ambassadors" ambassadors={ambassadors} />
+      {ambassadors.length > 3 && (
+        <Ambassadors heading="Our Ambassadors" ambassadors={ambassadors} />
+      )}
       <CTA />
     </main>
   );

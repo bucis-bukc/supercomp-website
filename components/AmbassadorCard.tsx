@@ -22,8 +22,12 @@ export const AmbassadorCard = ({
         />
       </div>
       <div className="absolute bottom-0 left-0 right-0 px-6 py-6 z-20">
-        <p className="text-text text-4xl font-bold font-heading">{name}</p>
-        <p className="text-text font-bold font-heading">{institute}</p>
+        <p className="capitalize text-text text-4xl font-bold font-heading">
+          {name}
+        </p>
+        <p className="capitalize text-text font-bold font-heading">
+          {institute}
+        </p>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[#001E80] to-transparent opacity-75 z-10"></div>
     </div>

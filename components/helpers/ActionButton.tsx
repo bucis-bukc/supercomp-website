@@ -3,7 +3,7 @@ import { cn } from "../../lib/utils";
 export const ActionButton = ({
   btnText,
   className,
-  type,
+  type = "button",
   disabled,
 }: {
   btnText: string;
@@ -19,6 +19,7 @@ export const ActionButton = ({
         disabled && "pointer-events-none opacity-50"
       )}
       disabled={disabled}
+      type={type}
     >
       {/* Glowing Outline */}
       <div className="absolute inset-0 outline outline-2 -outline-offset-2 outline-sky-500 [mask-image:linear-gradient(225deg,transparent,transparent_10px,black_10px)]"></div>

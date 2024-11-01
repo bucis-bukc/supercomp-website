@@ -49,11 +49,13 @@ export const formatDateToTime = (date: string) => {
   });
 };
 
-const isEmail = (email: string) => {
+export const isEmail = (email: string) => {
   const re = /\S+@\S+\.\S+/;
   return re.test(email);
 };
 
-const isValidPhoneNumber = (phone: string) => {
+export const isValidPhoneNumber = (phone: string) => {
   return phone.length === 11 && /^\d+$/.test(phone);
 };
+
+export const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);

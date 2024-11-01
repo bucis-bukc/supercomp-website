@@ -20,6 +20,7 @@ interface CardsData {
   rulebookUrl: string;
   href: string;
   color: string;
+  image: string;
 }
 
 export const Competitions = ({
@@ -99,7 +100,7 @@ export const Competitions = ({
                           {/* Shadow for Image */}
                           <div className="absolute h-4 w-full top-[calc(100%+16px)] bg-zinc-950/70 rounded-[100%] [mask-image:radial-gradient(closest-side,black,transparent)] group-hover:bg-zinc-950/30 transition duration-300"></div>
                           <img
-                            src={"/assets/images/pill.png"}
+                            src={card.image}
                             alt={card.name}
                             className="size-40 user-select-none group-hover:-translate-y-6 transition duration-300"
                           />

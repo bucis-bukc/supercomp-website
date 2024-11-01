@@ -37,7 +37,7 @@ const AmbassadorsPage = () => {
                 transition={{ duration: 0.7, type: "spring", delay: 0.2 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="capitalize section-title md:text-left font-bold text-3xl md:text-4xl lg:text-5xl max-w-3xl mb-5"
+                className="capitalize section-title text-left font-bold text-3xl md:text-4xl lg:text-5xl max-w-3xl mb-5"
               >
                 what You'll get
               </motion.h2>

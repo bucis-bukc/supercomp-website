@@ -14,14 +14,13 @@ export const POST = async (req: NextRequest) => {
         { status: 400 }
       );
 
-    // Check if ambassador already exists
     const ambassadorExists = await Ambassador.findOne({
       email,
     });
 
     if (ambassadorExists)
       return NextResponse.json(
-        { error: "Email already exists" },
+        { error: "You are already registered" },
         { status: 400 }
       );
 

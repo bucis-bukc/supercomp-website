@@ -5,7 +5,7 @@ interface MemberPayload {
   email: string;
   phone: string;
   institute: string;
-  // isLeader: boolean;
+  isLeader: boolean;
 }
 
 interface RegisterPayload {

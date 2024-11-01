@@ -5,14 +5,15 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
   { name: "Register", path: "/register" },
   { name: "Ambassadors", path: "/ambassadors" },
 ];
 export const Header = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -70,7 +71,10 @@ export const Header = () => {
                 {navLinks.map((link, idx) => (
                   <Link
                     href={link.path}
-                    className={cn("font-semibold")}
+                    className={cn(
+                      "font-medium",
+                      pathname === link.path && "font-semibold text-black"
+                    )}
                     key={idx}
                   >
                     {link.name}
