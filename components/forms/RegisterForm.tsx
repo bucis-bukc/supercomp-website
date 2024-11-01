@@ -22,6 +22,8 @@ import {
 import { comeptitionNames } from "@/lib/data";
 import { ActionButton } from "../helpers";
 import { PayslipInput } from "./PayslipInput";
+import isEmail from "validator/lib/isEmail";
+import { isMobilePhone } from "validator";
 
 export const RegisterForm = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -52,7 +54,6 @@ export const RegisterForm = () => {
       phone?: string | undefined;
     }[]
   ): { message: string; path: string }[] => {
-    // the first member should contain all the fields, if not contain then set error on the first member, else the other members can be empty if one of the fields is filled then all the other fields must alos be filled
     const firstMember = members[0];
     const otherMembers = members.slice(1);
 
@@ -67,7 +68,6 @@ export const RegisterForm = () => {
       }
     }
 
-    // Check if other members have all fields filled if one field is filled
     const error: { path: string; message: string }[] = [];
     let index = 1;
     for (const member of otherMembers) {
@@ -101,14 +101,26 @@ export const RegisterForm = () => {
   ) => {
     const { members, ...rest } = data;
     const errors = validateMembers(members);
-    console.log(errors);
     if (errors && errors.length > 0) {
       errors.forEach((err) => {
         setError(err.path as any, { message: err.message });
       });
       return;
     }
-    // filter members
+
+    const isValidEmailAndPhone = members.every((member, index) => {
+      if (!isEmail(member.email ?? "")) {
+        setError(`members.${index}.email`, { message: "Invalid email" });
+        return false;
+      }
+      if (!isMobilePhone(member.phone ?? "", "en-PK")) {
+        setError(`members.${index}.phone`, { message: "11 digits max" });
+        return false;
+      }
+      return true;
+    });
+
+    if (!isValidEmailAndPhone) return;
     const filteredMembers = members.filter((member) => {
       let isFilled = false;
       for (const field in member) {
@@ -122,7 +134,8 @@ export const RegisterForm = () => {
       return isFilled;
     });
     const { response, success } = await mutateAsync({
-      ...(data as any),
+      ...data,
+      members: filteredMembers as any,
       payslip,
     });
     if (success) {

@@ -48,3 +48,12 @@ export const formatDateToTime = (date: string) => {
     day: "2-digit",
   });
 };
+
+const isEmail = (email: string) => {
+  const re = /\S+@\S+\.\S+/;
+  return re.test(email);
+};
+
+const isValidPhoneNumber = (phone: string) => {
+  return phone.length === 11 && /^\d+$/.test(phone);
+};
