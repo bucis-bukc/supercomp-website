@@ -41,16 +41,16 @@ export const POST = async (req: NextRequest) => {
         { status: 500 }
       );
 
-    // Send email to all members
-    await Promise.all(
-      members.map(async (member) => {
-        await sendMail({
-          email: member.email,
-          emailType: "REGISTRATION",
-          id: registration.id,
-        });
-      })
-    );
+    // // Send email to all members
+    // await Promise.all(
+    //   members.map(async (member) => {
+    //     await sendMail({
+    //       email: member.email,
+    //       emailType: "REGISTRATION",
+    //       id: registration.id,
+    //     });
+    //   })
+    // );
 
     return NextResponse.json({
       message: "Registeration successful",

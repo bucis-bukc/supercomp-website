@@ -19,7 +19,7 @@ export const createAmbassador = async (body: CreateAmbassador) => {
   } catch (error: any) {
     return {
       success: false,
-      response: error?.response?.data?.message || "Something went wrong",
+      response: error?.response?.data?.error || "Something went wrong",
     };
   }
 };
