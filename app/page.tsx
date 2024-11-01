@@ -6,9 +6,11 @@ import {
   Sponsors,
 } from "@/components/sections";
 import { nonTechCompetitionsData, techCompetitionsData } from "@/lib/data";
-import { Ambassador } from "@/types/types";
-const ambassadors: Ambassador[] = [
+import { IAmbassador } from "@/types/types";
+
+const ambassadors: IAmbassador[] = [
   {
+    _id: "1",
     name: "John Doe",
     email: "john.doe@example.com",
     phone: "+1 555-1234",
@@ -17,6 +19,7 @@ const ambassadors: Ambassador[] = [
     picture: "/team 1.png",
   },
   {
+    _id: "2",
     name: "Jane Smith",
     email: "jane.smith@example.com",
     phone: "+1 555-5678",
@@ -25,6 +28,7 @@ const ambassadors: Ambassador[] = [
     picture: "/team 2.png",
   },
   {
+    _id: "3",
     name: "Alice Johnson",
     email: "alice.johnson@example.com",
     phone: "+1 555-9101",

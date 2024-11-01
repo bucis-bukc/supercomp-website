@@ -9,15 +9,15 @@ import {
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { AmbassadorCard } from "../AmbassadorCard";
-import { Ambassador } from "@/types/types";
 import { cn } from "@/lib/utils";
+import { IAmbassador } from "@/types/types";
 
 export const Ambassadors = ({
   heading,
   ambassadors,
 }: {
   heading: string;
-  ambassadors: Ambassador[];
+  ambassadors: IAmbassador[];
 }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);

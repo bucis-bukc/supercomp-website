@@ -1,5 +1,5 @@
 import { convertImage } from "@/lib/helpers";
-import { Ambassador } from "@/types/types";
+import { IAmbassador } from "@/types/types";
 
 export const AmbassadorCard = ({
   name,
@@ -8,7 +8,7 @@ export const AmbassadorCard = ({
   cnic,
   institute,
   picture,
-}: Ambassador) => {
+}: IAmbassador) => {
   return (
     <div className="w-full bg-sky-100 rounded-2xl h-full max-h-[500px] relative overflow-hidden">
       <div className="w-full h-full rounded-2xl relative z-10">
