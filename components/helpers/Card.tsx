@@ -9,11 +9,13 @@ export const Card = ({
   children,
   minMembers,
   maxMembers,
+  rulebookUrl,
 }: {
   children: React.ReactNode;
   minMembers: number;
   maxMembers: number;
   color: string;
+  rulebookUrl: string;
   className?: string;
   btnText?: string;
 }) => {
@@ -49,6 +51,9 @@ export const Card = ({
       </div>
       <div className="flex justify-between mt-auto gap-x-8">
         <button
+          onClick={() =>
+            typeof window !== undefined && window.open(rulebookUrl, "_blank")
+          }
           className={cn(
             "text-sm font-heading uppercase font-extrabold tracking-wider text-fuchsia-500 ",
             color === "lime" && "text-lime-500",

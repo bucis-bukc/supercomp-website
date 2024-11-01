@@ -93,6 +93,7 @@ export const Competitions = ({
                       maxMembers={card.maxMembers}
                       className="xs:max-w-xs w-full md:max-w-md flex flex-col items-start select-none"
                       btnText="Get Rule Book"
+                      rulebookUrl={card.rulebookUrl}
                     >
                       {/* Image */}
                       <div className="flex justify-center -mt-28">

@@ -14,13 +14,14 @@ export const techCompetitionsData = [
   },
   {
     category: "Tech",
-    name: "App Development",
+    name: "Code In the Dark",
     shortDescription: "Develop a mobile application.",
     description:
       "Participants will create a mobile app for either Android or iOS platforms.",
     minMembers: 1,
     maxMembers: 4,
-    rulebookUrl: "https://example.com/app-dev",
+    rulebookUrl:
+      "https://drive.google.com/file/d/1eMCJHsnEe5cFhHTGPd-J9XLUYyge6rW8/view?usp=sharing",
     href: "/competitions/app-development",
     color: "lime",
     image: "/assets/images/hemisphere.png",
@@ -33,7 +34,8 @@ export const techCompetitionsData = [
       "Participants will use Machine Learning to create insightful visual representations of complex data sets.",
     minMembers: 1,
     maxMembers: 3,
-    rulebookUrl: "https://example.com/data-visualization",
+    rulebookUrl:
+      "https://drive.google.com/file/d/1JlN_oHLj9yUc0mf20OZ5PDh3CFKA9Iw5/view?usp=sharing",
     href: "/competitions/data-visualization",
     color: "cyan",
     image: "/assets/images/torus.png",
@@ -46,7 +48,8 @@ export const techCompetitionsData = [
       "Participants will solve problems by writing efficient SQL queries to retrieve and manipulate data.",
     minMembers: 1,
     maxMembers: 2,
-    rulebookUrl: "https://example.com/sql-query",
+    rulebookUrl:
+      "https://drive.google.com/file/d/1OKJ4L0H0x2UeGvZMDqbMn6G_TK-r8kjJ/view?usp=drivesdk",
     href: "/competitions/sql-query",
     color: "violet",
     image: "/assets/images/torus-knot.png",
@@ -59,7 +62,8 @@ export const techCompetitionsData = [
       "Participants will write pseudocode to solve algorithmic problems, focusing on logic and structure.",
     minMembers: 1,
     maxMembers: 2,
-    rulebookUrl: "https://example.com/pseudocode",
+    rulebookUrl:
+      "https://drive.google.com/file/d/1zCyUFfof0p_JJIkYIwZ8QL-N4lvgDzYV/view?usp=sharing",
     href: "/competitions/pseudocode",
     color: "cyan",
     image: "/assets/images/cube.png",
@@ -72,7 +76,8 @@ export const techCompetitionsData = [
       "Participants will design user interfaces and experiences that are both functional and aesthetically pleasing.",
     minMembers: 1,
     maxMembers: 3,
-    rulebookUrl: "https://example.com/ui-ux",
+    rulebookUrl:
+      "https://drive.google.com/file/d/1MoyFENOPBW8n40-s-Ye6z8uQv5uHqQye/view?usp=drivesdk",
     href: "/competitions/ui-ux",
     color: "lime",
     image: "/assets/images/cone.png",
@@ -85,7 +90,8 @@ export const techCompetitionsData = [
       "Participants will be given buggy code and must find and fix the errors as quickly as possible.",
     minMembers: 1,
     maxMembers: 2,
-    rulebookUrl: "https://example.com/speed-debugging",
+    rulebookUrl:
+      "https://drive.google.com/file/d/10gQNVbZkswFYrDVmXljjH448SmoHmPx5/view?usp=sharing",
     href: "/competitions/speed-debugging",
     color: "violet",
     image: "/assets/images/cylinder.png",

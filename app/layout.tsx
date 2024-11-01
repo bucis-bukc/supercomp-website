@@ -7,6 +7,8 @@ import { DM_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { SmoothScrollProvider } from "@/store/SmoothScrollProvider";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -100,7 +102,30 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
           rel="stylesheet"
         />
-        <link rel="preload" as="image" href="/assets/images/icosahedron.png" />
+        <link
+          rel="preload"
+          as="image"
+          fetchPriority="high"
+          href="/assets/images/icosahedron.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <body
         className={cn(
@@ -118,6 +143,8 @@ export default function RootLayout({
             </main>
           </SmoothScrollProvider>
         </ReactQueryProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

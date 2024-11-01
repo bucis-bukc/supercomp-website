@@ -35,16 +35,18 @@ export const Header = () => {
           </Link>
         </div>
 
-        <div className="container mx-auto py-2 md:px-10">
+        <div className="container py-2 mx-auto md:px-10">
           <div className="">
             <div className="flex items-center justify-between">
-              <Image
-                src="/assets/images/logo.png"
-                alt="LOGO"
-                width={200}
-                height={200}
-                className="object-contain w-16"
-              />
+              <Link href="/">
+                <Image
+                  src="/assets/images/logo.png"
+                  alt="LOGO"
+                  width={500}
+                  height={500}
+                  className="object-contain w-16"
+                />
+              </Link>
               <div
                 onClick={() => setIsOpen((prev) => !prev)}
                 className="size-10 relative cursor-pointer md:hidden"
