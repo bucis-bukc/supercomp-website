@@ -1,13 +1,16 @@
 "use client";
 import { registerforCompetition } from "@/API/register.api";
 import { convertImage } from "@/lib/helpers";
-import { registerSchema } from "@/validations/register.validation";
+import {
+  registerSchema,
+  memberSchema,
+} from "@/validations/register.validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { z } from "zod";
+import { setErrorMap, z } from "zod";
 import { Input } from "./Input";
 import {
   Select,
@@ -32,18 +35,78 @@ export const RegisterForm = () => {
     register,
     handleSubmit,
     setValue,
+    setError,
     watch,
     reset,
+    trigger,
     formState: { errors, isSubmitting },
   } = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
   });
 
+  const validateMembers = (
+    members: {
+      email?: string | undefined;
+      name?: string | undefined;
+      institute?: string | undefined;
+      phone?: string | undefined;
+    }[]
+  ): { message: string; path: string }[] => {
+    // the first member should contain all the fields, if not contain then set error on the first member, else the other members can be empty if one of the fields is filled then all the other fields must alos be filled
+    const firstMember = members[0];
+    const otherMembers = members.slice(1);
+
+    // Check if the first member contains all the fields
+    const errorFirstMember: { path: string; message: string }[] = [];
+    for (const field in firstMember) {
+      if (!(firstMember as any)[field]) {
+        errorFirstMember.push({
+          message: `${field} is required`,
+          path: `members.0.${field}`,
+        });
+      }
+    }
+
+    // Check if other members have all fields filled if one field is filled
+    const error: { path: string; message: string }[] = [];
+    let index = 1;
+    for (const member of otherMembers) {
+      let isAnyFieldFilled = false;
+      let isAllFieldsFilled = true;
+      let err: { path: string; message: string } | null = null;
+      for (const field in member) {
+        if ((member as any)[field]) {
+          isAnyFieldFilled = true;
+        } else {
+          isAllFieldsFilled = false;
+          err = {
+            path: `members.${index}.${field}`,
+            message: `${field} must be filled`,
+          };
+        }
+        err && error.push(err);
+      }
+      index++;
+      const final = [];
+      if (isAnyFieldFilled && !isAllFieldsFilled) {
+        final.push(...error);
+      }
+      return [...final, ...errorFirstMember];
+    }
+    return [];
+  };
+
   const onSubmit: SubmitHandler<z.infer<typeof registerSchema>> = async (
     data
   ) => {
-    if (!payslip) return toast.error("Please provide the payslip");
-    console.log(data);
+    const { members, ...rest } = data;
+    const errors = validateMembers(members);
+    console.log(errors);
+    if (errors && errors.length > 0) {
+      errors.forEach((err) => {
+        setError(err.path as any, { message: err.message });
+      });
+    }
     // const { response, success } = await mutateAsync({
     //   ...data,
     //   payslip,
