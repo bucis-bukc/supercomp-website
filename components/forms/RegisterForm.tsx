@@ -22,6 +22,8 @@ import {
 import { comeptitionNames } from "@/lib/data";
 import { ActionButton } from "../helpers";
 import { PayslipInput } from "./PayslipInput";
+import isEmail from "validator/lib/isEmail";
+import { isMobilePhone } from "validator";
 
 export const RegisterForm = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -52,9 +54,8 @@ export const RegisterForm = () => {
       phone?: string | undefined;
     }[]
   ): { message: string; path: string }[] => {
-    // the first member should contain all the fields, if not contain then set error on the first member, else the other members can be empty if one of the fields is filled then all the other fields must alos be filled
     const firstMember = members[0];
-    const otherMembers = members.slice(1);
+    const otherMembers = members.slice(1, members.length);
 
     // Check if the first member contains all the fields
     const errorFirstMember: { path: string; message: string }[] = [];
@@ -67,8 +68,8 @@ export const RegisterForm = () => {
       }
     }
 
-    // Check if other members have all fields filled if one field is filled
     const error: { path: string; message: string }[] = [];
+    let final = [];
     let index = 1;
     for (const member of otherMembers) {
       let isAnyFieldFilled = false;
@@ -87,36 +88,64 @@ export const RegisterForm = () => {
         err && error.push(err);
       }
       index++;
-      const final = [];
       if (isAnyFieldFilled && !isAllFieldsFilled) {
         final.push(...error);
       }
-      return [...final, ...errorFirstMember];
     }
-    return [];
+    return [...final, ...errorFirstMember];
   };
 
   const onSubmit: SubmitHandler<z.infer<typeof registerSchema>> = async (
     data
   ) => {
     const { members, ...rest } = data;
+    let isValid = true;
     const errors = validateMembers(members);
-    console.log(errors);
     if (errors && errors.length > 0) {
       errors.forEach((err) => {
         setError(err.path as any, { message: err.message });
       });
+      isValid = false;
     }
-    // const { response, success } = await mutateAsync({
-    //   ...data,
-    //   payslip,
-    // });
-    // if (success) {
-    //   toast.success("Thank you for your submission");
-    //   setPayslip("");
-    //   setFile(null);
-    //   reset();
-    // } else return toast.error(response as string);
+
+    const isValidEmailAndPhone = members.every((member, index) => {
+      if (member.email && !isEmail(member.email ?? "")) {
+        setError(`members.${index}.email`, { message: "Invalid email" });
+        return false;
+      }
+      if (member.phone && !isMobilePhone(member.phone ?? "", "en-PK")) {
+        setError(`members.${index}.phone`, {
+          message: "phone should contain 11 digits",
+        });
+        return false;
+      }
+      return true;
+    });
+
+    if (!isValidEmailAndPhone || !isValid) return;
+    const filteredMembers = members.filter((member) => {
+      let isFilled = false;
+      for (const field in member) {
+        if ((member as any)[field]) {
+          isFilled = true;
+        } else {
+          isFilled = false;
+          break;
+        }
+      }
+      return isFilled;
+    });
+    const { response, success } = await mutateAsync({
+      ...data,
+      members: filteredMembers as any,
+      payslip,
+    });
+    if (success) {
+      toast.success("Thank you for your submission");
+      setPayslip("");
+      setFile(null);
+      reset();
+    } else return toast.error(response as string);
   };
 
   const competitionName = watch("competitionName");

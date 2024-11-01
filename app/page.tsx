@@ -5,40 +5,14 @@ import {
   Hero,
   Sponsors,
 } from "@/components/sections";
+import { connectDb } from "@/lib/config/db";
 import { nonTechCompetitionsData, techCompetitionsData } from "@/lib/data";
-import { IAmbassador } from "@/types/types";
+import { Ambassador } from "@/lib/models/Ambassador";
 
-const ambassadors: IAmbassador[] = [
-  {
-    _id: "1",
-    name: "John Doe",
-    email: "john.doe@example.com",
-    phone: "+1 555-1234",
-    institute: "Harvard University",
-    cnic: "12345-6789012-3",
-    picture: "/team 1.png",
-  },
-  {
-    _id: "2",
-    name: "Jane Smith",
-    email: "jane.smith@example.com",
-    phone: "+1 555-5678",
-    institute: "Stanford University",
-    cnic: "23456-7890123-4",
-    picture: "/team 2.png",
-  },
-  {
-    _id: "3",
-    name: "Alice Johnson",
-    email: "alice.johnson@example.com",
-    phone: "+1 555-9101",
-    institute: "MIT",
-    cnic: "34567-8901234-5",
-    picture: "/team 3.png",
-  },
-];
+export default async function Home() {
+  await connectDb();
+  const ambassadors = await Ambassador.find({});
 
-export default function Home() {
   return (
     <main className="">
       <Hero />
