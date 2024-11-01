@@ -28,17 +28,23 @@ export const Footer = () => {
             <p className="text-white mt-2">{footerText2}</p>
           </div>
           <div className="flex items-center gap-x-4">
-            <Link href="">
+            <Link
+              href="https://www.linkedin.com/company/supercompofficial/"
+              target="_blank"
+            >
               <Linkedin className="social-icon" />
             </Link>
-            <Link href="/">
+            <Link
+              href="https://www.instagram.com/supercomp.bukc?igsh=MXFzNGllbG1veW56MA=="
+              target="_blank"
+            >
               <Instagram className="social-icon" />
             </Link>
-            <Link href="/">
+            <Link
+              href="https://www.facebook.com/share/DRaruq8qgH4uZ3oH/"
+              target="_blank"
+            >
               <Facebook className="social-icon" />
-            </Link>
-            <Link href="/">
-              <Twitter className="social-icon" />
             </Link>
           </div>
         </div>
