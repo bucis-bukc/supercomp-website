@@ -182,3 +182,31 @@ export const comeptitionNames = [
   { name: "FIFA Competition", maxMembers: 1 },
   { name: "TEKKEN Competition", maxMembers: 1 },
 ];
+
+export const heroTagLine =
+  "An exciting event for computer science students to showcase their skills and compete in various competitions.";
+
+export const techCompetitionsHeading =
+  "Showcase your skills in technical competitions!";
+export const nontechCompetitionsHeading =
+  "Get ready for the General Competitions!";
+
+export const ctaText =
+  "Register now in your desired competition and get a chance to showcase your skills in your domain and dominate the competition and get a chance to win exciting prizes.";
+
+export const footerText1 =
+  "Supercomp is an annual event for science and technical students who loves code.";
+export const footerText2 =
+  "Participate in various competitions to showcase your skills and talents. Join us to experience the excitement and challenge yourself in a competitive environment.";
+
+export const registerText =
+  "An exciting event for computer science students to showcase their skills and compete in various competitions.";
+
+export const ambassadorText =
+  "An exciting event for computer science students to showcase their skills and compete in various competitions.";
+
+export const ambassadorPara1 =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tristique, odio a ultrices ultricies, metus lorem consectetur purus, eget efficitur felis libero at mi. Nulla facilisi.";
+
+export const ambassadorPara2 =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tristique, odio a ultrices ultricies, metus lorem consectetur purus, eget efficitur felis libero at mi. Nulla facilisi.";

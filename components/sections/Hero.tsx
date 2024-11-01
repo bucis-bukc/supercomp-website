@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { ActionButton, Circle, Hexagon } from "../helpers";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import { heroTagLine } from "@/lib/data";
 
 export const Hero = () => {
   const icosahedronRef = useRef(null);
@@ -62,8 +63,7 @@ export const Hero = () => {
           viewport={{ once: true }}
           className="text-center text-xl md:text-2xl mt-6 text-zinc-800 max-w-xl mx-auto"
         >
-          An exciting event for computer science students to showcase their
-          skills and compete in various competitions.
+          {heroTagLine}
         </motion.p>
         <div className="flex justify-center mt-10">
           <Link href="/register" className="block z-10">

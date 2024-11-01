@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { RegisterForm } from "@/components/forms";
+import { registerText } from "@/lib/data";
 
 const RegistrationPage = () => {
   return (
@@ -25,8 +26,7 @@ const RegistrationPage = () => {
             viewport={{ once: true }}
             className="text-center text-xl md:text-2xl mt-6 text-zinc-800 max-w-xl mx-auto"
           >
-            An exciting event for computer science students to showcase their
-            skills and compete in various competitions.
+            {registerText}
           </motion.p>
           <RegisterForm />
         </div>

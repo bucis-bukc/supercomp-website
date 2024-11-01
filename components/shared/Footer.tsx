@@ -1,4 +1,9 @@
-import { nonTechCompetitionsData, techCompetitionsData } from "@/lib/data";
+import {
+  footerText1,
+  footerText2,
+  nonTechCompetitionsData,
+  techCompetitionsData,
+} from "@/lib/data";
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,31 +24,21 @@ export const Footer = () => {
               className="w-20 object-contain "
             />
 
-            <p className="text-white mt-3">
-              Supercomp is an annual event for science and technical students
-              who loves code.
-            </p>
-            <p className="text-white mt-2">
-              Participate in various competitions to showcase your skills and
-              talents. Join us to experience the excitement and challenge
-              yourself in a competitive environment.
-            </p>
+            <p className="text-white mt-3">{footerText1}</p>
+            <p className="text-white mt-2">{footerText2}</p>
           </div>
           <div className="flex items-center gap-x-4">
             <Link href="">
               <Linkedin className="social-icon" />
             </Link>
-            <Link href="">
+            <Link href="/">
               <Instagram className="social-icon" />
             </Link>
-            <Link href="">
+            <Link href="/">
               <Facebook className="social-icon" />
             </Link>
-            <Link href="">
+            <Link href="/">
               <Twitter className="social-icon" />
-            </Link>
-            <Link href="">
-              <Youtube className="social-icon" />
             </Link>
           </div>
         </div>

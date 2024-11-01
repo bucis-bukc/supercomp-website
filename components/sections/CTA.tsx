@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "../helpers";
+import { ctaText } from "@/lib/data";
 
 export const CTA = () => {
   const ref = useRef(null);
@@ -36,9 +37,7 @@ export const CTA = () => {
             viewport={{ once: true }}
             className="text-center text-lg tracking-tight text-zinc-800 mt-5"
           >
-            Register now in your desired competition and get a chance to
-            showcase your skills in your domain and dominate the competition and
-            get a chance to win exciting prizes.
+            {ctaText}
           </motion.p>
 
           <div className="flex items-center justify-center gap-2 mt-10">

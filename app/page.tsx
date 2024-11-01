@@ -6,7 +6,12 @@ import {
   Sponsors,
 } from "@/components/sections";
 import { connectDb } from "@/lib/config/db";
-import { nonTechCompetitionsData, techCompetitionsData } from "@/lib/data";
+import {
+  nonTechCompetitionsData,
+  nontechCompetitionsHeading,
+  techCompetitionsData,
+  techCompetitionsHeading,
+} from "@/lib/data";
 import { Ambassador } from "@/lib/models/Ambassador";
 
 export default async function Home() {
@@ -17,12 +22,12 @@ export default async function Home() {
     <main className="">
       <Hero />
       <Competitions
-        heading="Showcase your skills in technical competitions!"
+        heading={techCompetitionsHeading}
         data={techCompetitionsData}
       />
       <Sponsors />
       <Competitions
-        heading="Get ready for the General Competitions!"
+        heading={nontechCompetitionsHeading}
         data={nonTechCompetitionsData}
         className="pt-44"
       />

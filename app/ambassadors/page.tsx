@@ -3,6 +3,7 @@ import { AmbassadorForm } from "@/components/forms";
 import React from "react";
 import { motion } from "framer-motion";
 import { div } from "framer-motion/client";
+import { ambassadorPara1, ambassadorPara2, ambassadorText } from "@/lib/data";
 
 const AmbassadorsPage = () => {
   return (
@@ -26,8 +27,7 @@ const AmbassadorsPage = () => {
             viewport={{ once: true }}
             className="text-center text-xl md:text-2xl mt-6 text-zinc-800 max-w-xl mx-auto"
           >
-            An exciting event for computer science students to showcase their
-            skills and compete in various competitions.
+            {ambassadorText}
           </motion.p>
           {/* Two Grid Layout */}
           <div className="mt-24 grid md:grid-cols-2 gap-5">
@@ -42,14 +42,10 @@ const AmbassadorsPage = () => {
                 what You'll get
               </motion.h2>
               <p className="sm:text-lg text-zinc-800 max-w-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                tristique, odio a ultrices ultricies, metus lorem consectetur
-                purus, eget efficitur felis libero at mi. Nulla facilisi.
+                {ambassadorPara1}
               </p>
               <p className="mt-2 sm:text-lg text-zinc-800 max-w-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                tristique, odio a ultrices ultricies, metus lorem consectetur
-                purus, eget efficitur felis libero at mi. Nulla facilisi.
+                {ambassadorPara2}
               </p>
             </div>
             <AmbassadorForm />
